@@ -138,6 +138,7 @@
       gap: 1.5rem;
       padding-bottom: 1rem;
       scroll-snap-type: x mandatory;
+      scroll-padding-left: 0; /* ensure first card aligns */
     }
 
     .scroll-container::-webkit-scrollbar {
@@ -204,10 +205,11 @@
         position: absolute;
         top: 80px;
         right: 0;
-        width: 95%;
+        width: 100%; /* full navbar width */
         background: rgba(31,31,31,0.95);
         padding: 1rem;
         border-radius: 16px;
+        box-sizing: border-box; /* include padding in width */
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
@@ -257,13 +259,15 @@
         font-size: 1.3rem;
       }
 
+      /* Make each card fill full viewport width minus gap */
       .scroll-container {
         gap: 1rem;
+        padding-left: 0;
       }
 
       .card {
-        flex: 0 0 80%;
-        margin: 0 auto;
+        flex: 0 0 calc(100% - 1rem);
+        margin: 0; /* remove auto centering */
       }
     }
   </style>
@@ -350,7 +354,7 @@
     const totalSlides = scrollContainer.children.length;
 
     scrollContainer.addEventListener('scroll', () => {
-      const cardWidth = scrollContainer.children[0].offsetWidth + 24; // include gap
+      const cardWidth = scrollContainer.children[0].offsetWidth + 16; // include gap
       const index = Math.round(scrollContainer.scrollLeft / cardWidth) + 1;
       currentSlide.textContent = Math.min(index, totalSlides);
     });
