@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Coda Club</title>
+  <!-- Fonte Inter Tight -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter Tight', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 20px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(31, 31, 31, 0.9);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      z-index: 1000;
+      max-width: 1100px;
+      width: 95%;
+      margin: 0 auto;
+      justify-content: space-between;
+    }
+
+    .navbar img {
+      height: 55px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .nav-links a:hover {
+      color: #fe8d01;
+    }
+
+    /* Hamburger menu (mobile) */
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      margin-left: auto;
+      color: white;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+      padding: 1rem;
+    }
+
+    .hero-text h1 {
+      color: #fe8d01;
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-text button {
+      background-color: #fe8d01;
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .hero-text button:hover {
+      background-color: #ff9f20;
+    }
+
+    .hero-image {
+      flex: 1.3; /* bigger image */
+      min-width: 280px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    /* Section: Troque seus Pontos */
+    .points-section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .points-section h2 {
+      color: #fe8d01;
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+
+    .card {
+      flex: 0 0 250px;
+      background: #1f1f1f;
+      border-radius: 16px;
+      padding: 1rem;
+      scroll-snap-align: start;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #fe8d01;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: rgba(31,31,31,0.95);
+        padding: 1rem;
+        border-radius: 16px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links a {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      .nav-links.active a {
+        animation: slideFade 0.3s forwards;
+      }
+
+      .nav-links.active a:nth-child(1) { animation-delay: 0.1s; }
+      .nav-links.active a:nth-child(2) { animation-delay: 0.2s; }
+      .nav-links.active a:nth-child(3) { animation-delay: 0.3s; }
+      .nav-links.active a:nth-child(4) { animation-delay: 0.4s; }
+      .nav-links.active a:nth-child(5) { animation-delay: 0.5s; }
+
+      @keyframes slideFade {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .hero-text p {
+        font-size: 1.3rem;
+      }
+
+      .scroll-container {
+        gap: 1rem;
+      }
+
+      .card {
+        flex: 0 0 80%;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="https://imgur.com/zNgUzfD.png" alt="Logo">
+    <div class="nav-links" id="navLinks">
+      <a href="#pointsSection">Troque seus Pontos</a>
+      <a href="#">Cadastre-se</a>
+      <a href="#">Como ganhar pontos</a>
+      <a href="#checkPointsSection">Confira seus Pontos</a>
+      <a href="#">Dúvidas Frequentes</a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>CODA CLUB</h1>
+      <p>Cadastre-se agora e ganhe 25 pontos</p>
+      <button>Cadastre-se</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://i.imgur.com/GHVrpew.png" alt="Promo Image">
+    </div>
+  </section>
+
+  <!-- Troque seus Pontos Section -->
+  <section class="points-section" id="pointsSection">
+    <h2>TROQUE SEUS PONTOS</h2>
+    <div class="scroll-container">
+      <div class="card">
+        <img src="https://i.imgur.com/6lXm1p0.jpeg" alt="Item 1">
+        <h3>30 PONTOS</h3>
+        <p>Maionese verde, Maionese branca, Maionese defumada, Barbecue, Ketchup, Mostarda ou Molho Especial.</p>
+      </div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 2</h3><p>Descrição do prêmio 2</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 3</h3><p>Descrição do prêmio 3</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 4</h3><p>Descrição do prêmio 4</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 5</h3><p>Descrição do prêmio 5</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 6</h3><p>Descrição do prêmio 6</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 7</h3><p>Descrição do prêmio 7</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 8</h3><p>Descrição do prêmio 8</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 9</h3><p>Descrição do prêmio 9</p></div>
+      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 10</h3><p>Descrição do prêmio 10</p></div>
+    </div>
+  </section>
+
+  <!-- Confira seus Pontos Section -->
+  <section class="check-points-section" id="checkPointsSection" style="padding:3rem 2rem; text-align:center; max-width:1200px; margin:0 auto;">
+    <h2 style="color:#fe8d01; font-size:3.5rem; margin-bottom:2rem;">CONFIRA SEUS PONTOS</h2>
+    <button style="background-color:#fe8d01; color:white; border:none; padding:1rem 2.5rem; font-size:1.2rem; border-radius:30px; cursor:pointer;">
+      Conferir
+    </button>
+  </section>
+
+
+  <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth" });
+        // Close menu on mobile
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+</body>
+</html>
