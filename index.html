@@ -12,7 +12,7 @@
     *::after {
       box-sizing: border-box;
     }
-    
+
     body {
       margin: 0;
       font-family: 'Inter Tight', sans-serif;
@@ -204,6 +204,76 @@
       50% { transform: translateX(5px); }
     }
 
+    .earn-points-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .earn-card {
+      background-color: #1f1f1f;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 100%; /* Full width */
+      margin-bottom: 2rem;
+    }
+
+    .earn-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .earn-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fe8d01;
+      z-index: 2; /* on top of icon */
+      position: relative;
+    }
+
+    .earn-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fe8d01; /* orange */
+    }
+
+    .earn-text {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    .earn-points-highlight {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .earn-table table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .earn-table th, .earn-table td {
+      padding: 0.5rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+
+    .earn-table th {
+      color: #fff;
+    }
+
+    .earn-table td {
+      color: #ccc;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .nav-links {
@@ -277,6 +347,11 @@
         flex: 0 0 calc(100% - 1rem);
         margin: 0; /* remove auto centering */
       }
+
+      .earn-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -329,6 +404,74 @@
       <span id="currentSlide">1</span>/10 <span class="arrow">→</span>
     </div>
   </section>
+
+  <!-- Como Ganhar Pontos Section -->
+  <section class="earn-points-section" id="earnPointsSection" style="padding:3rem 2rem; max-width:1200px; margin:0 auto;">
+    <h2 style="color:#fe8d01; font-size:3.5rem; margin-bottom:2rem; text-align:center;">COMO GANHAR PONTOS</h2>
+
+    <!-- Box 1: Valor do Pedido -->
+    <div class="earn-card">
+      <div class="earn-header">
+        <div class="earn-number">1</div>
+        <div class="earn-title">Valor do Pedido</div>
+      </div>
+      <div class="earn-table">
+        <table>
+          <thead>
+            <tr>
+              <th>VALOR DO PEDIDO</th>
+              <th>PONTOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>R$25,00</td><td>10 pontos</td></tr>
+            <tr><td>R$50,00</td><td>25 pontos</td></tr>
+            <tr><td>R$100,00</td><td>55 pontos</td></tr>
+            <tr><td>R$150,00</td><td>85 pontos</td></tr>
+            <tr><td>R$200,00</td><td>115 pontos</td></tr>
+            <tr><td>R$250,00</td><td>150 pontos</td></tr>
+            <tr><td>R$300,00</td><td>180 pontos</td></tr>
+            <tr><td>R$400,00</td><td>245 pontos</td></tr>
+            <tr><td>R$500,00</td><td>310 pontos</td></tr>
+            <tr><td>R$600,00</td><td>375 pontos</td></tr>
+            <tr><td>R$700,00</td><td>440 pontos</td></tr>
+            <tr><td>R$800,00</td><td>500 pontos</td></tr>
+            <tr><td>R$900,00</td><td>560 pontos</td></tr>
+            <tr><td>R$1000,00</td><td>630 pontos</td></tr>
+            <tr><td>R$1200,00</td><td>750 pontos</td></tr>
+            <tr><td>R$1400,00</td><td>870 pontos</td></tr>
+            <tr><td>R$1600,00</td><td>1000 pontos</td></tr>
+            <tr><td>R$1800,00</td><td>1120 pontos</td></tr>
+            <tr><td>R$2000,00</td><td>1250 pontos</td></tr>
+            <tr><td>R$2500,00</td><td>1550 pontos</td></tr>
+            <tr><td>R$3000,00</td><td>1850 pontos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Box 2: Avaliação no Google -->
+    <div class="earn-card">
+      <div class="earn-header">
+        <div class="earn-number">2</div>
+        <div class="earn-title">Avaliação no Google</div>
+      </div>
+      <div class="earn-text earn-points-highlight">Pontos = 20</div>
+      <div class="earn-text">Deve ser feita no dia da compra e apresentada ao atendente no momento do pedido. Avaliações antigas ou mostradas depois não pontuam.</div>
+    </div>
+
+    <!-- Boxes 3–9 -->
+    <div class="earn-card">
+      <div class="earn-header">
+        <div class="earn-number">3</div>
+        <div class="earn-title">Título do Box 3</div>
+      </div>
+      <div class="earn-text earn-points-highlight">Pontos = XX</div>
+      <div class="earn-text">Texto explicativo do box 3.</div>
+    </div>
+    <!-- Repeat similar blocks up to 9 -->
+  </section>
+
 
   <!-- Confira seus Pontos Section -->
   <section class="check-points-section" id="checkPointsSection" style="padding:3rem 2rem; text-align:center; max-width:1200px; margin:0 auto;">
