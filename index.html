@@ -86,12 +86,12 @@
     }
 
     .hero-title {
-      margin-bottom: 1.5rem;
+      margin-bottom: 3.5rem;
     }
 
     .hero-subtitle-top,
     .hero-subtitle-bottom {
-      font-size: 1.2rem;  /* smaller than the "PEÇA NO CODA..." text */
+      font-size: 1rem;  
       color: #fff;
       font-weight: 500;
     }
@@ -104,8 +104,8 @@
     }
 
     .hero-description {
-      font-size: 1.5rem; /* reference size */
-      margin-bottom: 2rem;
+      font-size: 1.5rem; 
+      margin-bottom: 3.5rem;
     }
 
     .hero-text p {
@@ -143,18 +143,21 @@
     /* Section: Troque seus Pontos */
     .points-section {
       padding: 3rem 2rem;
+      width: 100%;
+      background: linear-gradient(to bottom, #000 0%, #fe8d01 10%);
+    }
+
+    .points-section .inner {
       max-width: 1200px;
       margin: 0 auto;
-      background-color: #fe8d01; /* orange background */
-      border-radius: 20px;
     }
 
     .points-section h2 {
       color: #000;
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 2rem;
       text-align: center;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .scroll-container {
@@ -170,17 +173,18 @@
       height: 8px;
     }
     .scroll-container::-webkit-scrollbar-thumb {
-      background: #444;
+      background: #fff;
       border-radius: 10px;
     }
 
-    .card {
+    .points-section .card {
       flex: 0 0 250px;
-      background: #1f1f1f;
+      background: #fff;
       border-radius: 16px;
       padding: 1rem;
       scroll-snap-align: start;
       text-align: center;
+      color: #000;
     }
 
     .card img {
@@ -189,21 +193,21 @@
       margin-bottom: 1rem;
     }
 
-    .card h3 {
+    .points-section .card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: #fe8d01;
     }
 
-    .card p {
+    .points-section .card p {
       font-size: 1rem;
-      color: #ccc;
+      color: #333;
     }
 
     /* Scroll Indicator */
     .scroll-indicator {
       text-align: center;
-      color: #fe8d01;
+      color: #fff;
       font-size: 1.2rem;
       margin-top: 0.5rem;
       display: flex;
@@ -405,25 +409,27 @@
 
   <!-- Troque seus Pontos Section -->
   <section class="points-section" id="pointsSection">
-    <h2>TROQUE SEUS PONTOS</h2>
-    <div class="scroll-container">
-      <div class="card">
-        <img src="https://i.imgur.com/6lXm1p0.jpeg" alt="Item 1">
-        <h3>30 PONTOS</h3>
-        <p>Maionese verde, Maionese branca, Maionese defumada, Barbecue, Ketchup, Mostarda ou Molho Especial.</p>
+    <div class="inner">
+      <h2>TROQUE SEUS PONTOS</h2>
+      <div class="scroll-container">
+        <div class="card">
+          <img src="https://i.imgur.com/6lXm1p0.jpeg" alt="Item 1">
+          <h3>30 PONTOS</h3>
+          <p>Maionese verde, Maionese branca, Maionese defumada, Barbecue, Ketchup, Mostarda ou Molho Especial.</p>
+        </div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 2</h3><p>Descrição do prêmio 2</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 3</h3><p>Descrição do prêmio 3</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 4</h3><p>Descrição do prêmio 4</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 5</h3><p>Descrição do prêmio 5</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 6</h3><p>Descrição do prêmio 6</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 7</h3><p>Descrição do prêmio 7</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 8</h3><p>Descrição do prêmio 8</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 9</h3><p>Descrição do prêmio 9</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 10</h3><p>Descrição do prêmio 10</p></div>
       </div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 2</h3><p>Descrição do prêmio 2</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 3</h3><p>Descrição do prêmio 3</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 4</h3><p>Descrição do prêmio 4</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 5</h3><p>Descrição do prêmio 5</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 6</h3><p>Descrição do prêmio 6</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 7</h3><p>Descrição do prêmio 7</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 8</h3><p>Descrição do prêmio 8</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 9</h3><p>Descrição do prêmio 9</p></div>
-      <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 10</h3><p>Descrição do prêmio 10</p></div>
-    </div>
-    <div class="scroll-indicator">
-      <span id="currentSlide">1</span>/10 <span class="arrow">→</span>
+      <div class="scroll-indicator">
+        <span id="currentSlide">1</span>/10 <span class="arrow">→</span>
+      </div>
     </div>
   </section>
 
