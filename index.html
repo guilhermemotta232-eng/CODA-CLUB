@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Coda Club</title>
-  <!-- Fonte Inter Tight -->
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     *,
     *::before,
-    *::after {
-      box-sizing: border-box;
-    }
+    *::after { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -37,14 +34,11 @@
       justify-content: space-between;
     }
 
-    .navbar img {
-      height: 55px;
-    }
+    .navbar img { height: 55px; }
 
     .nav-links {
       display: flex;
       gap: 1.5rem;
-      box-sizing: border-box;
     }
 
     .nav-links a {
@@ -54,11 +48,8 @@
       font-size: 1.1rem;
     }
 
-    .nav-links a:hover {
-      color: #fe8d01;
-    }
+    .nav-links a:hover { color: #fe8d01; }
 
-    /* Hamburger menu (mobile) */
     .menu-toggle {
       display: none;
       font-size: 30px;
@@ -67,7 +58,7 @@
       color: white;
     }
 
-    /* Hero section */
+    /* Hero */
     .hero {
       display: flex;
       justify-content: center;
@@ -77,43 +68,18 @@
       text-align: center;
       max-width: 1200px;
       margin: 0 auto;
+      min-height: 100vh; /* ocupa a tela inteira */
     }
 
-    .hero-text {
-      flex: 1;
-      min-width: 280px;
-      padding: 1rem;
-    }
-
-    .hero-title {
-      margin-bottom: 3.5rem;
-    }
-
+    .hero-text { flex: 1; min-width: 280px; padding: 1rem; }
+    .hero-title { margin-bottom: 3.5rem; }
     .hero-subtitle-top,
-    .hero-subtitle-bottom {
-      font-size: 1rem;  
-      color: #fff;
-      font-weight: 500;
-    }
+    .hero-subtitle-bottom { font-size: 1rem; font-weight: 500; }
+    .hero-text h1 { color: #fe8d01; font-size: 4.5rem; margin: 0.3rem 0; font-weight: 700; }
+    .hero-description { font-size: 1.5rem; margin-bottom: 3.5rem; }
 
-    .hero-text h1 {
-      color: #fe8d01;
-      font-size: 4.5rem;
-      margin: 0.3rem 0;
-      font-weight: 700;
-    }
-
-    .hero-description {
-      font-size: 1.5rem; 
-      margin-bottom: 3.5rem;
-    }
-
-    .hero-text p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-text button {
+    /* Botões padrão */
+    .btn-orange {
       background-color: #fe8d01;
       color: white;
       border: none;
@@ -121,43 +87,18 @@
       font-size: 1.2rem;
       border-radius: 30px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
+    .btn-orange:hover { background-color: #ff9f20; }
 
-    .hero-text button:hover {
-      background-color: #ff9f20;
-    }
+    .hero-image { flex: 1.3; min-width: 280px; padding: 1rem; text-align: center; }
+    .hero-image img { max-width: 100%; border-radius: 20px; }
 
-    .hero-image {
-      flex: 1.3;
-      min-width: 280px;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-    }
-
-    /* Section: Troque seus Pontos */
-    .points-section {
-      padding: 3rem 2rem;
-      width: 100%;
-      background: #ff9f20;
-    }
-
-    .points-section .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    /* Troque seus Pontos */
+    .points-section { padding: 3rem 2rem; background: #ff9f20; }
+    .points-section .inner { max-width: 1200px; margin: 0 auto; }
     .points-section h2 {
-      color: #000;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-weight: 800;
+      color: #000; font-size: 3rem; margin-bottom: 2rem; text-align: center; font-weight: 800;
     }
 
     .scroll-container {
@@ -166,17 +107,10 @@
       gap: 1.5rem;
       padding-bottom: 1rem;
       scroll-snap-type: x mandatory;
-      scroll-padding-left: 0; 
       scroll-behavior: smooth;
     }
-
-    .scroll-container::-webkit-scrollbar {
-      height: 8px;
-    }
-    .scroll-container::-webkit-scrollbar-thumb {
-      background: #fff;
-      border-radius: 10px;
-    }
+    .scroll-container::-webkit-scrollbar { height: 8px; }
+    .scroll-container::-webkit-scrollbar-thumb { background: #fff; border-radius: 10px; }
 
     .points-section .card {
       flex: 0 0 250px;
@@ -188,199 +122,61 @@
       text-align: center;
       color: #000;
     }
+    .card img { width: 100%; border-radius: 12px; margin-bottom: 1rem; }
+    .points-section .card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fe8d01; }
+    .points-section .card p { font-size: 1rem; color: #333; }
 
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
+    .scroll-indicator { text-align: center; color: #fff; font-size: 1.2rem; margin-top: 0.5rem; display: flex; justify-content: center; gap: 0.5rem; }
+    .scroll-indicator .arrow { animation: bounce 1s infinite; font-weight: bold; }
+    @keyframes bounce { 0%,100%{transform:translateX(0);} 50%{transform:translateX(5px);} }
 
-    .points-section .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: #fe8d01;
-    }
+    /* Como Funciona */
+    .earn-points-container { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+    .earn-card { background-color: #1f1f1f; border-radius: 16px; padding: 2rem; width: 100%; margin-bottom: 2rem; }
+    .earn-title { font-size: 1.8rem; font-weight: 600; color: #fe8d01; }
+    .earn-text { font-size: 1rem; color: #fff; margin-top: 0.5rem; line-height: 1.5; }
 
-    .points-section .card p {
-      font-size: 1rem;
-      color: #333;
-    }
-
-    /* Scroll Indicator */
-    .scroll-indicator {
-      text-align: center;
-      color: #fff;
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .scroll-indicator .arrow {
-      animation: bounce 1s infinite;
-      font-weight: bold;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(5px); }
-    }
-
-    .earn-points-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .earn-card {
-      background-color: #1f1f1f;
-      border-radius: 16px;
-      padding: 2rem;
-      width: 100%; /* Full width */
-      margin-bottom: 2rem;
-    }
-
-    .earn-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .earn-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #fe8d01;
-      z-index: 2; /* on top of icon */
-      position: relative;
-    }
-
-    .earn-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #fe8d01; /* orange */
-    }
-
-    .earn-text {
-      font-size: 1rem;
-      color: #fff;
-      line-height: 1.5;
-      margin-top: 0.5rem;
-    }
-
-    .earn-points-highlight {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-
-    .earn-table table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .earn-table th, .earn-table td {
-      padding: 0.5rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid #333;
-    }
-
-    .earn-table th {
-      color: #fff;
-    }
-
-    .earn-table td {
-      color: #ccc;
-    }
-
-    /* Responsive */
+    /* Mobile */
     @media (max-width: 768px) {
       .nav-links {
-        display: flex;
         flex-direction: column;
         position: absolute;
         top: 80px;
-        left: 0;
-        right: 0;
-        width: 100%; /* full navbar width */
+        right: 0; /* alinhado à direita */
         background: rgba(31,31,31,0.95);
-        padding: 1rem 0;
-        border-radius: 0;
-        box-sizing: border-box; /* include padding in width */
+        padding: 1rem;
+        border-radius: 8px;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
+        align-items: flex-end; /* alinhamento */
+        text-align: right;
       }
-
-      .nav-links.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
+      .nav-links.active { opacity: 1; pointer-events: auto; }
       .nav-links a {
         opacity: 0;
         transform: translateY(-20px);
       }
-
       .nav-links.active a {
-        animation: slideFade 0.3s forwards;
+        animation: slideFade 0.4s forwards;
       }
-
       .nav-links.active a:nth-child(1) { animation-delay: 0.1s; }
       .nav-links.active a:nth-child(2) { animation-delay: 0.2s; }
       .nav-links.active a:nth-child(3) { animation-delay: 0.3s; }
       .nav-links.active a:nth-child(4) { animation-delay: 0.4s; }
       .nav-links.active a:nth-child(5) { animation-delay: 0.5s; }
+      .nav-links.active a:nth-child(6) { animation-delay: 0.6s; }
 
-      @keyframes slideFade {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+      @keyframes slideFade { to { opacity: 1; transform: translateY(0); } }
 
-      .menu-toggle {
-        display: block;
-      }
+      .menu-toggle { display: block; }
 
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
+      .hero { flex-direction: column-reverse; }
+      .hero-text h1 { font-size: 3rem; }
+      .hero-description { font-size: 1.3rem; }
 
-      .hero-text h1 {
-        font-size: 3rem;
-      }
-
-      .hero-text p {
-        font-size: 1.3rem;
-      }
-
-      .scroll-container {
-        gap: 0;
-        padding: 0;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        padding-bottom: 1rem;
-      }
-
-      .scroll-container .card {
-        flex: 0 0 100%;
-        margin: 0; 
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-        padding: 1rem;
-      }
-
-      .earn-card {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
+      .scroll-container { gap: 1.5rem; }
+      .scroll-container .card { flex: 0 0 100%; }
     }
   </style>
 </head>
@@ -389,8 +185,9 @@
   <nav class="navbar">
     <img src="https://imgur.com/zNgUzfD.png" alt="Logo">
     <div class="nav-links" id="navLinks">
-      <a href="#pointsSection">Troque seus Pontos</a>
       <a href="#">Cadastre-se</a>
+      <a href="#pointsSection">Troque seus Pontos</a>
+      <a href="#howItWorksSection">Como Funciona</a>
       <a href="#earnPointsSection">Como ganhar pontos</a>
       <a href="#checkPointsSection">Confira seus Pontos</a>
       <a href="#">Dúvidas Frequentes</a>
@@ -398,7 +195,7 @@
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Home Section -->
   <section class="hero">
     <div class="hero-text">
       <div class="hero-title">
@@ -406,37 +203,41 @@
         <h1>CODA CLUB</h1>
         <div class="hero-subtitle-bottom">O programa revolucionário de fidelidade</div>
       </div>
-      <p class="hero-description">PEÇA NO CODA , ACUMULE PONTOS E TROQUE POR PRÊMIOS DELECIOSOS</p>
-      <button>CADASTRE-SE E GANHE 25 PONTOS</button>
+      <p class="hero-description">PEÇA NO CODA , ACUMULE PONTOS E TROQUE POR PRÊMIOS DELICIOSOS</p>
+      <button class="btn-orange">CADASTRE-SE E GANHE 25 PONTOS</button>
     </div>
     <div class="hero-image">
       <img src="https://i.imgur.com/GHVrpew.png" alt="Promo Image">
     </div>
   </section>
 
-  <!-- Troque seus Pontos Section -->
+  <!-- Troque seus Pontos -->
   <section class="points-section" id="pointsSection">
     <div class="inner">
       <h2>TROQUE SEUS PONTOS</h2>
       <div class="scroll-container">
-        <div class="card"><img src="https://i.imgur.com/FErdmue.jpeg" alt="Item 1"><h3>280 PONTOS</h3><p>Hamburgeres : Ultra salad , Ultra Bacon , American Chicken</p></div>
-        <div class="card"><img src="https://i.imgur.com/0c51OaD.png"><h3>340 PONTOS</h3><p>Pizza Mozzarela 4 pedaços</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>280 PONTOS</h3><p>Parmegiana de Frango</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 4</h3><p>Descrição do prêmio 4</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 5</h3><p>Descrição do prêmio 5</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 6</h3><p>Descrição do prêmio 6</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 7</h3><p>Descrição do prêmio 7</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 8</h3><p>Descrição do prêmio 8</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 9</h3><p>Descrição do prêmio 9</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 10</h3><p>Descrição do prêmio 10</p></div>
+        <div class="card"><img src="https://i.imgur.com/FErdmue.jpeg"><h3>280 PONTOS</h3><p>Hamburgeres</p></div>
+        <div class="card"><img src="https://i.imgur.com/0c51OaD.png"><h3>340 PONTOS</h3><p>Pizza Mozzarela</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>280 PONTOS</h3><p>Parmegiana</p></div>
       </div>
-      <div class="scroll-indicator">
-        <span id="currentSlide">1</span>/10 <span class="arrow">→</span>
-      </div>
+      <div class="scroll-indicator"><span id="currentSlide">1</span>/3 <span class="arrow">→</span></div>
     </div>
   </section>
 
-  <!-- Como Ganhar Pontos Section -->
+  <!-- Como Funciona -->
+  <section class="how-it-works-section" id="howItWorksSection" style="padding:3rem 2rem; text-align:center;">
+    <div class="inner" style="max-width:1200px; margin:0 auto;">
+      <h2 style="color:#fe8d01; font-size:3rem; margin-bottom:2rem; font-weight:800;">COMO FUNCIONA</h2>
+      <div class="earn-points-container">
+        <div class="earn-card"><div class="earn-title">PEÇA NO CODA</div><div class="earn-text">Pelo Whatsapp , Goomer ou espaço físico</div></div>
+        <div class="earn-card"><div class="earn-title">GANHE PONTOS</div><div class="earn-text">Por valor do pedido e ações extras</div></div>
+        <div class="earn-card"><div class="earn-title">TROQUE POR PRÊMIOS</div><div class="earn-text">Use seus pontos para trocar por burgers , pizzas , marmitas e muito mais. — <b>A partir de 30 pontos você já troca por produtos aqui no CODA.</b></div></div>
+      </div>
+      <button class="btn-orange">FAZER MEU CADASTRO</button>
+    </div>
+  </section>
+
+   <!-- Como Ganhar Pontos Section -->
   <section class="earn-points-section" id="earnPointsSection" style="padding:3rem 2rem; max-width:1200px; margin:0 auto;">
     <h2 style="color:#fe8d01; font-size:3.5rem; margin-bottom:2rem; text-align:center;">COMO GANHAR PONTOS</h2>
 
@@ -503,43 +304,52 @@
     <!-- Repeat similar blocks up to 9 -->
   </section>
 
-
-  <!-- Confira seus Pontos Section -->
+  <!-- Confira seus Pontos -->
   <section class="check-points-section" id="checkPointsSection" style="padding:3rem 2rem; text-align:center; max-width:1200px; margin:0 auto;">
     <h2 style="color:#fe8d01; font-size:3.5rem; margin-bottom:2rem;">CONFIRA SEUS PONTOS</h2>
-    <button style="background-color:#fe8d01; color:white; border:none; padding:1rem 2.5rem; font-size:1.2rem; border-radius:30px; cursor:pointer;">
-      Conferir
-    </button>
+    <button class="btn-orange">Conferir</button>
   </section>
 
   <script>
-    // Toggle mobile menu
+    // Abre/fecha o menu mobile
     function toggleMenu() {
-      const nav = document.getElementById("navLinks");
-      nav.classList.toggle("active");
+      document.getElementById("navLinks").classList.toggle("active");
     }
 
-    // Smooth scroll
+    // Fecha o menu se clicar em qualquer link (com scroll suave)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        target.scrollIntoView({ behavior: "smooth" });
-        // Close menu on mobile
+        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
         document.getElementById("navLinks").classList.remove("active");
       });
     });
 
-    // Scroll indicator for points section
-    const scrollContainer = document.querySelector('.scroll-container');
-    const currentSlide = document.getElementById('currentSlide');
-    const totalSlides = scrollContainer.children.length;
+    // Fecha o menu se clicar fora dele
+    document.addEventListener("click", (event) => {
+      const navLinks = document.getElementById("navLinks");
+      const menuToggle = document.querySelector(".menu-toggle");
 
-    scrollContainer.addEventListener('scroll', () => {
-      const cardWidth = scrollContainer.children[0].offsetWidth + 16; // include gap
-      const index = Math.round(scrollContainer.scrollLeft / cardWidth) + 1;
-      currentSlide.textContent = Math.min(index, totalSlides);
+      if (
+        navLinks.classList.contains("active") &&
+        !navLinks.contains(event.target) &&
+        event.target !== menuToggle
+      ) {
+        navLinks.classList.remove("active");
+      }
     });
+
+    // Scroll indicator
+    const scrollContainer = document.querySelector('.scroll-container');
+    if (scrollContainer) {
+      const currentSlide = document.getElementById('currentSlide');
+      const totalSlides = scrollContainer.children.length;
+      scrollContainer.addEventListener('scroll', () => {
+        const cardWidth = scrollContainer.children[0].offsetWidth + 24;
+        const index = Math.round(scrollContainer.scrollLeft / cardWidth) + 1;
+        currentSlide.textContent = Math.min(index, totalSlides);
+      });
+    }
   </script>
 </body>
 </html>
