@@ -144,7 +144,7 @@
     .points-section {
       padding: 3rem 2rem;
       width: 100%;
-      background: linear-gradient(to bottom, #000 0%, #fe8d01 10%);
+      background: #ff9f20;
     }
 
     .points-section .inner {
@@ -166,7 +166,8 @@
       gap: 1.5rem;
       padding-bottom: 1rem;
       scroll-snap-type: x mandatory;
-      scroll-padding-left: 0; /* ensure first card aligns */
+      scroll-padding-left: 0; 
+      scroll-behavior: smooth;
     }
 
     .scroll-container::-webkit-scrollbar {
@@ -183,6 +184,7 @@
       border-radius: 16px;
       padding: 1rem;
       scroll-snap-align: start;
+      scroll-snap-stop: always;
       text-align: center;
       color: #000;
     }
@@ -359,15 +361,18 @@
         font-size: 1.3rem;
       }
 
-      /* Make each card fill full viewport width minus gap */
       .scroll-container {
-        gap: 1rem;
-        padding-left: 0;
+        gap: 0;
+        padding: 0;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
       }
 
-      .card {
-        flex: 0 0 calc(100% - 1rem);
-        margin: 0; /* remove auto centering */
+      .scroll-container .card {
+        flex: 0 0 100%;
+        margin: 0; 
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
       }
 
       .earn-card {
@@ -412,13 +417,9 @@
     <div class="inner">
       <h2>TROQUE SEUS PONTOS</h2>
       <div class="scroll-container">
-        <div class="card">
-          <img src="https://i.imgur.com/6lXm1p0.jpeg" alt="Item 1">
-          <h3>30 PONTOS</h3>
-          <p>Maionese verde, Maionese branca, Maionese defumada, Barbecue, Ketchup, Mostarda ou Molho Especial.</p>
-        </div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 2</h3><p>Descrição do prêmio 2</p></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 3</h3><p>Descrição do prêmio 3</p></div>
+        <div class="card"><img src="https://i.imgur.com/FErdmue.jpeg" alt="Item 1"><h3>280 PONTOS</h3><p>Hamburgeres : Ultra salad , Ultra Bacon , American Chicken</p></div>
+        <div class="card"><img src="https://i.imgur.com/0c51OaD.png"><h3>340 PONTOS</h3><p>Pizza Mozzarela 4 pedaços</p></div>
+        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>280 PONTOS</h3><p>Parmegiana de Frango</p></div>
         <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 4</h3><p>Descrição do prêmio 4</p></div>
         <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 5</h3><p>Descrição do prêmio 5</p></div>
         <div class="card"><img src="https://via.placeholder.com/250x150"><h3>Prêmio 6</h3><p>Descrição do prêmio 6</p></div>
