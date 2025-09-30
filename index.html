@@ -85,11 +85,27 @@
       padding: 1rem;
     }
 
+    .hero-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle-top,
+    .hero-subtitle-bottom {
+      font-size: 1.2rem;  /* smaller than the "PEÇA NO CODA..." text */
+      color: #fff;
+      font-weight: 500;
+    }
+
     .hero-text h1 {
       color: #fe8d01;
       font-size: 4.5rem;
-      margin-bottom: 1rem;
+      margin: 0.3rem 0;
       font-weight: 700;
+    }
+
+    .hero-description {
+      font-size: 1.5rem; /* reference size */
+      margin-bottom: 2rem;
     }
 
     .hero-text p {
@@ -129,11 +145,13 @@
       padding: 3rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      background-color: #fe8d01; /* orange background */
+      border-radius: 20px;
     }
 
     .points-section h2 {
-      color: #fe8d01;
-      font-size: 3.5rem;
+      color: #000;
+      font-size: 2.5rem;
       margin-bottom: 2rem;
       text-align: center;
       font-weight: 700;
@@ -362,7 +380,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#pointsSection">Troque seus Pontos</a>
       <a href="#">Cadastre-se</a>
-      <a href="#">Como ganhar pontos</a>
+      <a href="#earnPointsSection">Como ganhar pontos</a>
       <a href="#checkPointsSection">Confira seus Pontos</a>
       <a href="#">Dúvidas Frequentes</a>
     </div>
@@ -372,9 +390,13 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
-      <h1>CODA CLUB</h1>
-      <p>Cadastre-se agora e ganhe 25 pontos</p>
-      <button>Cadastre-se</button>
+      <div class="hero-title">
+        <div class="hero-subtitle-top">BEM VINDO AO</div>
+        <h1>CODA CLUB</h1>
+        <div class="hero-subtitle-bottom">O programa revolucionário de fidelidade</div>
+      </div>
+      <p class="hero-description">PEÇA NO CODA , ACUMULE PONTOS E TROQUE POR PRÊMIOS DELECIOSOS</p>
+      <button>CADASTRE-SE E GANHE 25 PONTOS</button>
     </div>
     <div class="hero-image">
       <img src="https://i.imgur.com/GHVrpew.png" alt="Promo Image">
