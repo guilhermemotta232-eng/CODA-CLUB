@@ -152,13 +152,13 @@
     }
 
     .points-section .scroll-container::-webkit-scrollbar-thumb {
-      background: #fff;
+      background: #1f1f1f;
       border-radius: 10px;
     }
 
     .points-section .card {
       flex: 0 0 250px;
-      background: #fff;
+      background: #1f1f1f;
       border-radius: 16px;
       padding: 1rem;
       scroll-snap-align: start;
@@ -180,12 +180,12 @@
 
     .points-section .card p {
       font-size: 1rem;
-      color: #333;
+      color: #fff;
     }
 
     .points-section .scroll-indicator {
       text-align: center;
-      color: #fff;
+      color: #1f1f1f;
       font-size: 1.2rem;
       margin-top: 0.5rem;
       display: flex;
@@ -260,7 +260,7 @@
       color: #000;
       font-size: 3rem;
       margin-bottom: 2rem;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .earn-points-section .earn-box {
@@ -301,6 +301,7 @@
     .earn-points-section .earn-table table {
       width: 100%;
       border-collapse: collapse;
+      background: #1f1f1f;
     }
 
     .earn-points-section .earn-table th,
@@ -308,7 +309,7 @@
       border: 1px solid #fff;
       padding: 0.8rem;
       text-align: center;
-      color: #000;
+      color: #fff;
     }
 
     .earn-points-section .earn-table th {
@@ -316,20 +317,10 @@
       font-weight: bold;
     }
 
-    .earn-points-section .earn-table th:first-child,
-    .earn-points-section .earn-table td:first-child {
-      background: #d9d9d9; /* cinza diferente para a primeira coluna */
-      font-weight: bold;
-    }
-
-    .earn-points-section .earn-table th:not(:first-child),
-    .earn-points-section .earn-table td:not(:first-child) {
-      background: #eaeaea; /* cinza claro para as outras colunas */
-    }
-
     /* Botão ver mais */
     .earn-points-section .show-more-btn {
-      margin-top: 2rem; /* grande gap abaixo da tabela */
+      margin-top: 1.5rem; 
+      margin-bottom: 1.5rem;
       background: #1f1f1f;
       color: #fff;
       border: none;
@@ -360,7 +351,7 @@
     }
 
     .earn-points-section .extra-scroll-container::-webkit-scrollbar-thumb {
-      background: #999;
+      background: #1f1f1f;
       border-radius: 10px;
     }
 
@@ -387,7 +378,7 @@
 
     .earn-points-section .scroll-indicator {
       text-align: center;
-      color: #333; /* indicador cinza */
+      color: #1f1f1f; 
       font-size: 1.2rem;
       margin-top: 0.5rem;
       display: flex;
@@ -395,7 +386,7 @@
       gap: 0.5rem;
     }
 
-    /* ================== CONFIRA SEUS PONTOS ================== */
+    /* ================== MEUS PONTOS ================== */
     .check-points-section {
       padding: 3rem 2rem;
       text-align: center;
@@ -484,7 +475,7 @@
       <a href="#pointsSection">Troque seus Pontos</a>
       <a href="#howItWorksSection">Como Funciona</a>
       <a href="#earnPointsSection">Como ganhar pontos</a>
-      <a href="#checkPointsSection">Confira seus Pontos</a>
+      <a href="#checkPointsSection">Meus Pontos</a>
       <a href="#">Dúvidas Frequentes</a>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -594,23 +585,23 @@
 
       <!-- Carrossel fora do box -->
       <div class="extra-scroll-container">
-          <div class="extra-card"><h3>Avaliação no Google</h3><p><b>Pontos = 20</b></p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 2</h3><p>Pontos = XX</p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 3</h3><p>Pontos = XX</p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 4</h3><p>Pontos = XX</p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 5</h3><p>Pontos = XX</p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 6</h3><p>Pontos = XX</p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 7</h3><p>Pontos = XX</p><p>abc</p></div>
-          <div class="extra-card"><h3>Ação 8</h3><p>Pontos = XX</p><p>abc</p></div>
+          <div class="extra-card"><h3>Avaliação no Google</h3><p><b>Pontos = 20</b></p><p>Deve ser feita no dia da compra e apresentada ao atendente no momento do pedido. Avaliações antigas ou mostradas depois não pontuam</p></div>
+          <div class="extra-card"><h3>Postagem no Instagram</h3><p><b>Pontos = 20</b></p><p> Apenas um story por pedido, com o perfil aberto, no ar por 24 horas. Pontuação é lançada após 24h.</p></div>
+          <div class="extra-card"><h3>Mesa com 4 pessoas</h3><p><b>Pontos = 35</b></p><p>Apenas para consumo no salão.</p></div>
+          <div class="extra-card"><h3>Mesa com 8 pessoas</h3><p><b>Pontos = 80</b></p><p>Apenas para consumo no salão.</p></div>
+          <div class="extra-card"><h3>Mesa com 12 pessoas</h3><p><b>Pontos = 120</b></p><p>Apenas para consumo no salão.</p></div>
+          <div class="extra-card"><h3>Pedir 4 semanas seguidas</h3><p><b>Pontos = 50</b></p><p>Pedidos semanais (mínimo um por semana)</p></div>
+          <div class="extra-card"><h3>Pedir 3 dias seguidos</h3><p><b>Pontos = 60</b></p><p>Três dias seguidos pedindo no Whatsapp ou no salão.</p></div>
+          <div class="extra-card"><h3>Comemorar aniversário</h3><p><b>Pontos = 45</b></p><p>Válido somente para consumo no salão e comprovado por documento de identidade. Pedidos no delivery no dia do aniversário não pontuam.</p></div>
       </div>
-      <div class="scroll-indicator"><span id="extraSlide">1</span>/3 <span class="arrow">→</span></div>
+      <div class="scroll-indicator"><span id="extraSlide">1</span>/8 <span class="arrow">→</span></div>
     </div>
   </section>
 
-  <!-- Confira seus Pontos -->
+  <!-- Meus Pontos -->
   <section class="check-points-section" id="checkPointsSection" style="padding:3rem 2rem; text-align:center; max-width:1200px; margin:0 auto;">
-    <h2 style="color:#fe8d01; font-size:3.5rem; margin-bottom:2rem;">CONFIRA SEUS PONTOS</h2>
-    <button class="btn-orange">Conferir</button>
+    <h2 style="color:#fe8d01; font-size:3.5rem; margin-bottom:2rem;">MEUS PONTOS</h2>
+    <button class="btn-orange">CONSULTAR MEUS PONTOSr</button>
   </section>
 
   <script>
