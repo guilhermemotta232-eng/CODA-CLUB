@@ -417,6 +417,70 @@
       margin-bottom: 2rem;
     }
 
+    /* ================== FAQ ================== */
+    .faq-section {
+      background: #fe8d01;
+      padding: 3rem 2rem;
+    }
+
+    .faq-section .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .faq-section h2 {
+      color: #000;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .faq-item {
+      background: #1f1f1f;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .faq-question .arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question .arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 1.5rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px; /* suficiente para respostas curtas */
+      padding: 1rem 1.5rem;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
     /* ================== BOTÕES ================== */
     .btn-orange {
       background-color: #fe8d01;
@@ -518,7 +582,7 @@
       <a href="#howItWorksSection">Como Funciona</a>
       <a href="#earnPointsSection">Como ganhar pontos</a>
       <a href="#checkPointsSection">Meus Pontos</a>
-      <a href="#">Dúvidas Frequentes</a>
+      <a href="#faqSection">Perguntas Frequentes</a>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </nav>
@@ -648,6 +712,234 @@
     <button class="btn-orange">CONSULTAR MEUS PONTOS</button>
   </section>
 
+  <!-- Perguntas Frequentes -->
+  <section class="faq-section" id="faqSection">
+    <div class="inner">
+      <h2>PERGUNTAS FREQUENTES</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>01. O QUE É O PROGRAMA CODA CLUB?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>É o nosso programa de fidelidade que transforma os seus pedidos em pontos para trocar por produtos, brindes ou experiências exclusivas.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>02. COMO FUNCIONA O PROGRAMA?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Você acumula pontos fazendo seus pedidos no nosso salão ou pelo WhatsApp. Esses pontos podem ser trocados por burgers, pizzas, marmitas e itens exclusivos do CODA.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>03. O PROGRAMA É GRATUITO?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sim, você participa sem pagar nada por isso!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>04. COMO EU PARTICIPO?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Basta informar seu nome completo, CPF e data de nascimento na hora do pedido.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>05. O QUE EU GANHO POR PARTICIPAR?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Você pode trocar seus pontos por: Produtos do CODA (burgers, pizzas, parmegianas e muito mais) , Brindes exclusivos (camisetas, chaveiros, bonés, porta-celular) e Experiências especiais como reservas personalizadas no salão</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>06. TODOS OS RESTAURANTES PARTICIPAM?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sim! Você pontua nos pedidos feitos no: @coda.burger , @coda.pizza e @coda.almoco</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>07. PRECISO ME REGISTRAR PARA PARTICIPAR?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sim! Na primeira vez em que você participar do CODA Club, será necessário informar CPF, Número de celular, Nome completo. Nas compras seguintes, basta informar o CPF.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>08. PEDIDOS EM RODÍZIOS OU EVENTOS ESPECIAIS TAMBÉM ACUMULAM PONTOS? </span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Rodízio de Mini Burgers e eventos parecidos em qualquer uma das empresas não são válidos para pontuação no CODA Club.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>09. PONTOS EXTRAS ACUMULAM COM OS PONTOS DO VALOR DO PEDIDO? </span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p> Sim. Todas as ações extras acumulam com os pontos do valor da compra. 
+Exemplo: Uma cliente:
+ Consumiu R$500,00 em nosso espaço físico (ganha 310
+ pontos)
+ Estava com uma mesa de 8 pessoas (90 pontos)
+ Estava comemorando o seu aniversário no espaço físico (50
+ pontos)
+ Fez uma avaliação no Google (20 pontos)
+ Postou no instagram marcando o CODA (20 pontos)
+ Total de pontos acumulados nesse dia: 490 pontos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>10. POSSO DIVIDIR MEUS PONTOS COM OUTRO CPF? </span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Não. Uma mesma compra ou mesa não pode ser dividida para mais de um CPF. É possível dividir o pagamento em vários cartões ou formas de pagamento, mas os pontos serão lançados em um único CPF. O atendente não tem permissão para separar o pedido ou repassar dados de uma mesa para outra para gerar dois cadastros distintos, a não ser que isso tenha sido solicitado pelos clientes no início do atendimento.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>11. QUANDO COMEÇO A GANHAR PONTOS? </span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>A partir do momento que você faz seu cadastro e realiza seu primeiro pedido dentro das regras de pontuação.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>12. CENTAVOS PONTUAM?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Não. Apenas valores inteiros são considerados no cálculo de pontos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>13. COMO TROCO MEUS PONTOS POR RECOMPENSAS?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>É só avisar no início do seu pedido que deseja usar seus pontos e informar qual item você quer trocar. Consultar tabela de produtos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>14. COMO VEJO A QUANTIDADE DE PONTOS DISPONÍVEIS?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Você pode consultar pelo nosso painel do CODA CLUB ou perguntar diretamente no nosso WhatsApp: (35) 99804-1483.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>15. CONSIGO PONTUAR COMPRANDO PELO IFOOD OU AIQFOME?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Não. Compras pelo iFood ou pelo Aiqfome não acumulam pontos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>16. CONSIGO PONTUAR COMPRANDO PELO WHATSAPP?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sim! Pedidos feitos pelo WhatsApp ou Goomer do CODA pontuam normalmente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>17. CONSIGO PONTUAR FAZENDO MEU PEDIDO NO BALCÃO DAS LOJAS?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sim! Pedidos feitos diretamente no nosso salão também pontuam.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>18. FIZ UMA COMPRA, MAS NÃO RECEBI MEUS PONTOS. O QUE EU FAÇO?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p> O prazo para os pontos caírem é de 24 horas após a compra. Caso esse prazo tenha passado, envie uma mensagem para o Whatsapp do CODA: (35) 99804-1483. Será necessário apresentar a nota fiscal ou comprovante de valores da compra (nota do CODA). Importante: pedidos feitos pelo Ifood ou Aiqfome não acumulam pontos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>19. CASO NÃO TENHA A NOTA, COMO FAÇO PARA COMPROVAR MEU PEDIDO?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>  Para pedidos consumidos no salão, feitos por telefone ou pedidos para viagem feitos no balcão (take out), a apresentação da nota fiscal é obrigatória. Para pedidos feitos via Whatsapp ou Goomer, você pode enviar um print do pedido. A equipe do CODA terá até 24h para conferir e lançar os pontos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>20. QUAL O PRAZO PARA OS MEUS PONTOS CAÍREM?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Até 24 horas após a compra.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>21. QUAL O PRAZO PARA OS MEUS PONTOS EXPIRAREM?</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Os pontos têm validade de 60 dias a partir da data da compra que os gerou. Salvo em casos promocionais, onde a validade dos pontos pode variar — nesses casos, o novo prazo será informado no texto da campanha vigente.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
   <script>
     // Abre/fecha o menu mobile
     function toggleMenu() {
@@ -712,6 +1004,14 @@
         extraSlide.textContent = Math.min(index, totalExtra);
       });
     }
+
+    // FAQ toggle
+    document.querySelectorAll(".faq-question").forEach(q => {
+      q.addEventListener("click", () => {
+        const item = q.parentElement;
+        item.classList.toggle("active");
+      });
+    });
   </script>
 </body>
 </html>
