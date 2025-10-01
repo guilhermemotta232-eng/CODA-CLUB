@@ -461,6 +461,23 @@
         pointer-events: auto;
       }
 
+      .nav-links a {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+
+      .nav-links.active a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-links.active a:nth-child(1) { transition-delay: 0.1s; }
+      .nav-links.active a:nth-child(2) { transition-delay: 0.2s; }
+      .nav-links.active a:nth-child(3) { transition-delay: 0.3s; }
+      .nav-links.active a:nth-child(4) { transition-delay: 0.4s; }
+      .nav-links.active a:nth-child(5) { transition-delay: 0.5s; }
+
       .menu-toggle {
         display: block;
       }
@@ -482,6 +499,10 @@
       }
 
       .earn-points-section .scroll-container .card {
+        flex: 0 0 100%;
+      }
+
+      .earn-points-section .extra-scroll-container .extra-card {
         flex: 0 0 100%;
       }
     }
@@ -532,9 +553,9 @@
   </section>
 
   <!-- Como Funciona -->
-  <section class="how-it-works-section" id="howItWorksSection" style="padding:3rem 2rem; text-align:center;">
-    <div class="inner" style="max-width:1200px; margin:0 auto;">
-      <h2 style="color:#fe8d01; font-size:3rem; margin-bottom:2rem; font-weight:800;">COMO FUNCIONA</h2>
+  <section class="how-it-works-section" id="howItWorksSection" >
+    <div class="inner">
+      <h2>COMO FUNCIONA</h2>
       <div class="earn-points-container">
         <div class="earn-card"><div class="earn-title">PEÇA NO CODA</div><div class="earn-text">Pelo Whatsapp , Goomer ou espaço físico</div></div>
         <div class="earn-card"><div class="earn-title">GANHE PONTOS</div><div class="earn-text">Por valor do pedido e ações extras</div></div>
@@ -620,7 +641,7 @@
   </section>
 
   <!-- Meus Pontos -->
-  <section class="check-points-section" id="checkPointsSection" style="padding:3rem 2rem; text-align:center; max-width:1200px; margin:0 auto;">
+  <section class="check-points-section" id="checkPointsSection">
     <h2>MEUS PONTOS</h2>
     <p>Consulte seus pontos aqui</p>
     <p>Digite seu CPF e veja na hora quantos pontos já tem para trocar</p>
