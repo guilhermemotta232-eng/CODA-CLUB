@@ -417,6 +417,10 @@
       margin-bottom: 2rem;
     }
 
+    #iframeOverlay {
+      transition: opacity 0.3s ease;
+    }
+
     /* ================== FAQ ================== */
     .faq-section {
       background: #fe8d01;
@@ -737,7 +741,40 @@
     <h2>MEUS PONTOS</h2>
     <p>Consulte seus pontos aqui</p>
     <p>Digite seu CPF e veja na hora quantos pontos já tem para trocar</p>
-    <button class="btn-orange">CONSULTAR MEUS PONTOS</button>
+    <button class="btn-orange" onclick="showPointsIframe()">CONSULTAR MEUS PONTOS</button>
+    <!-- Overlay escondido inicialmente -->
+    <div id="iframeOverlay" style="
+        display:none;
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.85);
+        z-index:10000;
+        justify-content:center;
+        align-items:center;
+        padding:1rem;
+    ">
+      <iframe id="pointsIframe" src="" style="
+          width:100%;
+          max-width:600px;
+          height:80%;
+          border:none;
+          border-radius:16px;
+          background:#000;
+      "></iframe>
+      <button onclick="closeIframe()" style="
+          position:absolute;
+          top:20px;
+          right:20px;
+          padding:1rem 2rem;
+          font-size:1rem;
+          border:none;
+          border-radius:8px;
+          cursor:pointer;
+          background:#fe8d01;
+          color:#000;
+          font-weight:700;
+      ">FECHAR</button>
+    </div>
   </section>
 
   <!-- Perguntas Frequentes -->
@@ -1049,6 +1086,17 @@ Exemplo: Uma cliente:
         item.classList.toggle("active");
       });
     });
+
+    function showPointsIframe() {
+      const iframe = document.getElementById("pointsIframe");
+      iframe.src = "https://script.google.com/macros/s/AKfycbwEiirF6eHTbOVU2FMaVZWGsZzjLkONiMJ1O-pPcikVNiBYm_aIx0jysubGkfJVtu1-iQ/exec";
+      document.getElementById("iframeOverlay").style.display = "flex";
+    }
+
+    function closeIframe() {
+      document.getElementById("iframeOverlay").style.display = "none";
+      document.getElementById("pointsIframe").src = "";
+    }
   </script>
 </body>
 </html>
