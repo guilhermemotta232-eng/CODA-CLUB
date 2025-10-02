@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meus Pontos - Coda Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <style>
+      /* ================== RESET GLOBAL ================== */
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Inter Tight', sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+
+      /* ================== BOTÕES ================== */
+      .btn-orange {
+        background-color: #fe8d01;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+        max-width: 320px;
+      }
+      .btn-orange:hover {
+        background-color: #ff9f20;
+      }
+
+      /* ================== SEÇÃO PRINCIPAL ================== */
+      .check-points-section {
+        padding: 2rem 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .check-points-section h2 {
+        color: #fe8d01;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        margin-bottom: 2rem;
+      }
+      .check-points-section p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 1rem;
+      }
+
+      input[type="text"] {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        border-radius: 12px;
+        border: none;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+      }
+
+      .points-display {
+        margin-top: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-weight: 700;
+        color: #fe8d01;
+      }
+
+      /* ================== MENSAGENS ================== */
+      .message {
+        margin-top: 1rem;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      /* ================== EXTRA AJUSTES MOBILE ================== */
+      @media (max-width: 480px) {
+        input[type="text"] {
+          font-size: 1rem;
+          max-width: 100%;
+        }
+        .btn-orange {
+          font-size: 1rem;
+          padding: 0.8rem 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Meus Pontos -->
+    <section class="check-points-section">
+      <h2>MEUS PONTOS</h2>
+      <p>Consulte seus pontos aqui</p>
+      <p>Digite seu CPF e veja na hora quantos pontos já tem para trocar</p>
+
+      <input type="text" id="cpfInput" placeholder="Digite seu CPF">
+      <br>
+      <button class="btn-orange" onclick="consultarPontos()">CONSULTAR</button>
+
+      <div class="points-display" id="pointsDisplay"></div>
+      <div class="message" id="msg"></div>
+    </section>
+
+    <script>
+      function formatCPF(value) {
+        value = value.replace(/\D/g, "").slice(0, 11);
+        if (value.length > 9) return value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
+        if (value.length > 6) return value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+        if (value.length > 3) return value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+        return value;
+      }
+
+      document.getElementById("cpfInput").addEventListener("input", function(e) {
+        e.target.value = formatCPF(e.target.value);
+      });
+
+      function consultarPontos() {
+        const input = document.getElementById("cpfInput").value.trim();
+        const cpfClean = input.replace(/\D/g, "");
+        const pointsDisplay = document.getElementById("pointsDisplay");
+        const msg = document.getElementById("msg");
+
+        pointsDisplay.innerHTML = '';
+        msg.textContent = '';
+
+        if (!input) {
+          msg.textContent = "Por favor, insira um CPF.";
+          return;
+        }
+
+        if (cpfClean.length !== 11) {
+          msg.textContent = "Informação fornecida incorreta.";
+          return;
+        }
+
+        google.script.run
+          .withSuccessHandler(function(response) {
+            pointsDisplay.innerHTML = response;
+          })
+          .searchID(input);
+      }
+    </script>
+  </body>
+</html>
