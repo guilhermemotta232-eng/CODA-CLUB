@@ -1,1054 +1,145 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Coda Club</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* ================== RESET GLOBAL ================== */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter Tight', sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* ================== NAVBAR ================== */
-    .navbar {
-      position: sticky;
-      top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: rgba(31, 31, 31, 0.9);
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      z-index: 1000;
-      max-width: 1100px;
-      width: 95%;
-      margin: 0 auto;
-    }
-
-    .navbar img {
-      height: 55px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #fe8d01;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
-      margin-left: auto;
-      color: white;
-    }
-
-    /* ================== HERO ================== */
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 4rem 2rem;
-      text-align: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      min-height: 100vh;
-    }
-
-    .hero-text {
-      flex: 1;
-      min-width: 280px;
-      padding: 1rem;
-    }
-
-    .hero-title {
-      margin-bottom: 3.5rem;
-    }
-
-    .hero-subtitle-top,
-    .hero-subtitle-bottom {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    .hero-text h1 {
-      color: #fe8d01;
-      font-size: 4.5rem;
-      margin: 0.3rem 0;
-      font-weight: 700;
-    }
-
-    .hero-description {
-      font-size: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .hero-image {
-      flex: 1.3;
-      min-width: 280px;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      border-radius: 20px;
-    }
-
-    /* ================== TROQUE SEUS PONTOS ================== */
-    .points-section {
-      padding: 3rem 2rem;
-      background: #ff9f20;
-    }
-
-    .points-section .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .points-section h2 {
-      color: #000;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .points-section .scroll-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 1.5rem;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-    }
-
-    .points-section .scroll-container::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .points-section .scroll-container::-webkit-scrollbar-thumb {
-      background: #1f1f1f;
-      border-radius: 10px;
-    }
-
-    .points-section .card {
-      flex: 0 0 250px;
-      background: #1f1f1f;
-      border-radius: 16px;
-      padding: 1rem;
-      scroll-snap-align: start;
-      text-align: center;
-      color: #000;
-    }
-
-    .points-section .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
-    .points-section .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: #fe8d01;
-    }
-
-    .points-section .card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      color: #fe8d01;
-    }
-
-    .points-section .card p {
-      font-size: 1rem;
-      color: #fff;
-    }
-
-    .points-section .scroll-indicator {
-      text-align: center;
-      color: #1f1f1f;
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .points-section .scroll-indicator .arrow {
-      animation: bounce 1s infinite;
-      font-weight: bold;
-    }
-
-    /* ================== COMO FUNCIONA ================== */
-    .how-it-works-section {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .how-it-works-section .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .how-it-works-section h2 {
-      color: #fe8d01;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      font-weight: 800;
-    }
-
-    .how-it-works-section .earn-points-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .how-it-works-section .earn-card {
-      background-color: #1f1f1f;
-      border-radius: 16px;
-      padding: 1.5rem;
-      width: 100%;
-      color: #fff;
-    }
-
-    .how-it-works-section .earn-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #fe8d01;
-    }
-
-    .how-it-works-section .earn-text {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      line-height: 1.5;
-    }
-
-    /* ================== COMO GANHAR PONTOS ================== */
-    .earn-points-section {
-      background: #fe8d01;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .earn-points-section .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .earn-points-section h2 {
-      color: #000;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      font-weight: 700;
-    }
-
-    .earn-points-section .earn-box {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .earn-points-section .earn-header {
-      background: #1f1f1f;
-      border-radius: 16px;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      justify-content: flex-start;
-      max-width: 1200px;
-    }
-
-    .earn-points-section .earn-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #fe8d01;
-    }
-
-    .earn-points-section .earn-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fe8d01;
-    }
-
-    .earn-points-section .earn-table-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .earn-points-section .earn-table table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #1f1f1f;
-    }
-
-    .earn-points-section .earn-table th,
-    .earn-points-section .earn-table td {
-      border: 1px solid #fff;
-      padding: 0.8rem;
-      text-align: center;
-      color: #fff;
-    }
-
-    .earn-points-section .earn-table th {
-      background: rgba(255, 255, 255, 0.1);
-      font-weight: bold;
-    }
-
-    /* Botão ver mais */
-    .earn-points-section .show-more-btn {
-      margin-top: 1.5rem; 
-      margin-bottom: 1.5rem;
-      background: #1f1f1f;
-      color: #fff;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .earn-points-section .show-more-btn:hover {
-      background: #333;
-    }
-
-    .earn-points-section .extra-scroll-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 1.5rem;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .earn-points-section .extra-scroll-container::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .earn-points-section .extra-scroll-container::-webkit-scrollbar-thumb {
-      background: #1f1f1f;
-      border-radius: 10px;
-    }
-
-    .earn-points-section .extra-card {
-      flex: 0 0 250px;
-      background: #1f1f1f;
-      border-radius: 16px;
-      padding: 1rem;
-      scroll-snap-align: start;
-      text-align: center;
-      color: #fff;
-    }
-
-    .earn-points-section .extra-card h3 {
-      color: #fe8d01;
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .earn-points-section .extra-card p {
-      color: #fff;
-      font-size: 1rem;
-    }
-
-    .earn-points-section .scroll-indicator {
-      text-align: center;
-      color: #1f1f1f; 
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .earn-points-section .scroll-indicator .arrow {
-      animation: bounce 1s infinite;
-      font-weight: bold;
-    }
-
-    /* ================== MEUS PONTOS ================== */
-    .check-points-section {
-      padding: 3rem 2rem;
-      text-align: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .check-points-section h2 {
-      color: #fe8d01;
-      font-size: 3.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .check-points-section p {
-      color: ##fff;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    /* ================== FAQ ================== */
-    .faq-section {
-      background: #fe8d01;
-      padding: 3rem 2rem;
-    }
-
-    .faq-section .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .faq-section h2 {
-      color: #000;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .faq-item {
-      background: #1f1f1f;
-      border-radius: 16px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      color: #fff;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    .faq-question .arrow {
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.active .faq-question .arrow {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      padding: 0 1.5rem;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 300px; /* suficiente para respostas curtas */
-      padding: 1rem 1.5rem;
-    }
-
-    .faq-answer p {
-      margin: 0;
-      color: #fff;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    /* ================== FINAL CTA ================== */
-    .final-cta-section {
-      background: #000;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .final-cta-section .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .final-cta-section h2 {
-      color: #fe8d01;
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-
-    .final-cta-section .btn-orange {
-      margin-bottom: 2rem;
-    }
-
-    .final-cta-section p {
-      color: #fff;
-      font-size: 1.2rem;
-    }
-
-    /* ================== BOTÕES ================== */
-    .btn-orange {
-      background-color: #fe8d01;
-      color: white;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btn-orange:hover {
-      background-color: #ff9f20;
-    }
-
-    /* ================== ANIMAÇÕES ================== */
-    @keyframes bounce {
-      0%,100% { transform: translateX(0); }
-      50% { transform: translateX(5px); }
-    }
-
-    /* ================== RESPONSIVO ================== */
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        background: rgba(31, 31, 31, 0.95);
-        padding: 1rem;
-        border-radius: 8px;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-        align-items: flex-end;
-        text-align: right;
+  <head>
+    <meta charset="UTF-8">
+    <title>Meus Pontos - Coda Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <style>
+      /* ================== RESET GLOBAL ================== */
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Inter Tight', sans-serif;
+        background-color: #000;
+        color: #fff;
       }
 
-      .nav-links.active {
-        opacity: 1;
-        pointer-events: auto;
+      /* ================== BOTÕES ================== */
+      .btn-orange {
+        background-color: #fe8d01;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+        max-width: 320px;
+      }
+      .btn-orange:hover {
+        background-color: #ff9f20;
       }
 
-      .nav-links a {
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
+      /* ================== SEÇÃO PRINCIPAL ================== */
+      .check-points-section {
+        padding: 2rem 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .check-points-section h2 {
+        color: #fe8d01;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        margin-bottom: 2rem;
+      }
+      .check-points-section p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 1rem;
       }
 
-      .nav-links.active a {
-        opacity: 1;
-        transform: translateY(0);
+      input[type="text"] {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        border-radius: 12px;
+        border: none;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
       }
 
-      .nav-links.active a:nth-child(1) { transition-delay: 0.1s; }
-      .nav-links.active a:nth-child(2) { transition-delay: 0.2s; }
-      .nav-links.active a:nth-child(3) { transition-delay: 0.3s; }
-      .nav-links.active a:nth-child(4) { transition-delay: 0.4s; }
-      .nav-links.active a:nth-child(5) { transition-delay: 0.5s; }
-
-      .menu-toggle {
-        display: block;
+      .points-display {
+        margin-top: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-weight: 700;
+        color: #fe8d01;
       }
 
-      .hero {
-        flex-direction: column-reverse;
+      /* ================== MENSAGENS ================== */
+      .message {
+        margin-top: 1rem;
+        color: #fff;
+        font-size: 1rem;
       }
 
-      .hero-text h1 {
-        font-size: 3rem;
+      /* ================== EXTRA AJUSTES MOBILE ================== */
+      @media (max-width: 480px) {
+        input[type="text"] {
+          font-size: 1rem;
+          max-width: 100%;
+        }
+        .btn-orange {
+          font-size: 1rem;
+          padding: 0.8rem 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Meus Pontos -->
+    <section class="check-points-section">
+      <h2>MEUS PONTOS</h2>
+      <p>Consulte seus pontos aqui</p>
+      <p>Digite seu CPF e veja na hora quantos pontos já tem para trocar</p>
+
+      <input type="text" id="cpfInput" placeholder="Digite seu CPF">
+      <br>
+      <button class="btn-orange" onclick="consultarPontos()">CONSULTAR</button>
+
+      <div class="points-display" id="pointsDisplay"></div>
+      <div class="message" id="msg"></div>
+    </section>
+
+    <script>
+      function formatCPF(value) {
+        value = value.replace(/\D/g, "").slice(0, 11);
+        if (value.length > 9) return value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
+        if (value.length > 6) return value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+        if (value.length > 3) return value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+        return value;
       }
 
-      .hero-description {
-        font-size: 1.3rem;
-      }
-
-      .points-section .scroll-container .card {
-        flex: 0 0 100%;
-      }
-
-      .earn-points-section .scroll-container .card {
-        flex: 0 0 100%;
-      }
-
-      .earn-points-section .extra-scroll-container .extra-card {
-        flex: 0 0 100%;
-      }
-    }
-
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <img src="https://imgur.com/zNgUzfD.png" alt="Logo">
-    <div class="nav-links" id="navLinks">
-      <a href="#pointsSection">Troque seus Pontos</a>
-      <a href="#howItWorksSection">Como Funciona</a>
-      <a href="#earnPointsSection">Como ganhar pontos</a>
-      <a href="#checkPointsSection">Meus Pontos</a>
-      <a href="#faqSection">Perguntas Frequentes</a>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  </nav>
-
-  <!-- Home Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <div class="hero-title">
-        <div class="hero-subtitle-top">BEM VINDO AO</div>
-        <h1>CODA CLUB</h1>
-        <div class="hero-subtitle-bottom">O programa revolucionário de fidelidade</div>
-      </div>
-      <p class="hero-description">PEÇA NO CODA , ACUMULE PONTOS E TROQUE POR PRÊMIOS DELICIOSOS</p>
-      <button class="btn-orange">CADASTRE-SE E GANHE 25 PONTOS</button>
-    </div>
-    <div class="hero-image">
-      <img src="https://i.imgur.com/GHVrpew.png" alt="Promo Image">
-    </div>
-  </section>
-
-  <!-- Troque seus Pontos -->
-  <section class="points-section" id="pointsSection">
-    <div class="inner">
-      <h2>TROQUE SEUS PONTOS</h2>
-      <div class="scroll-container">
-        <div class="card"><img src="https://i.imgur.com/FErdmue.jpeg"><h3>BURGER</h3><p>Ultra Salad , Ultra Bacon e American Chicken </p><h4>280 PONTOS</h4></div>
-        <div class="card"><img src="https://i.imgur.com/0c51OaD.png"><h3>PIZZA</h3><p>Mozzarela 4 pedaços</p><h4>340 PONTOS</h4></div>
-        <div class="card"><img src="https://via.placeholder.com/250x150"><h3>ALMOÇO</h3><p>Parmegiana de frango e Strogonoff de frango</p><h4>280 PONTOS</h4></div>
-      </div>
-      <div class="scroll-indicator"><span id="currentSlide">1</span>/3 <span class="arrow">→</span></div>
-    </div>
-  </section>
-
-  <!-- Como Funciona -->
-  <section class="how-it-works-section" id="howItWorksSection" >
-    <div class="inner">
-      <h2>COMO FUNCIONA</h2>
-      <div class="earn-points-container">
-        <div class="earn-card"><div class="earn-title">PEÇA NO CODA</div><div class="earn-text">Pelo Whatsapp , Goomer ou espaço físico</div></div>
-        <div class="earn-card"><div class="earn-title">GANHE PONTOS</div><div class="earn-text">Por valor do pedido e ações extras</div></div>
-        <div class="earn-card"><div class="earn-title">TROQUE POR PRÊMIOS</div><div class="earn-text">Use seus pontos para trocar por burgers , pizzas , marmitas e muito mais. — <b>A partir de 30 pontos você já troca por produtos aqui no CODA.</b></div></div>
-      </div>
-      <button class="btn-orange">FAZER MEU CADASTRO</button>
-    </div>
-  </section>
-
-  <!-- COMO GANHAR PONTOS -->
-  <section class="earn-points-section" id="earnPointsSection">
-    <div class="inner">
-      <h2>COMO GANHAR PONTOS</h2>
-
-      <!-- Box 1: Valor do Pedido -->
-      <div class="earn-box">
-        <div class="earn-header">
-          <div class="earn-number">01.</div>
-          <div class="earn-title">VALOR DO PEDIDO</div>
-        </div>
-      </div>
-
-      <!-- Tabela fora do box -->
-      <div class="earn-table-wrapper">
-        <div class="earn-table">
-          <table>
-            <thead>
-              <tr>
-                <th>VALOR DO PEDIDO</th>
-                <th>PONTOS</th>
-              </tr>
-            </thead>
-            <tbody id="pedidoTable">
-              <tr><td>R$25,00</td><td>10 pontos</td></tr>
-              <tr><td>R$50,00</td><td>25 pontos</td></tr>
-              <tr><td>R$100,00</td><td>55 pontos</td></tr>
-              <tr><td>R$150,00</td><td>85 pontos</td></tr>
-              <tr><td>R$200,00</td><td>115 pontos</td></tr>
-              <tr><td>R$250,00</td><td>150 pontos</td></tr>
-              <!-- escondidos -->
-              <tr class="hidden-row" style="display:none"><td>R$300,00</td><td>180 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$400,00</td><td>245 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$500,00</td><td>310 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$600,00</td><td>375 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$700,00</td><td>440 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$800,00</td><td>500 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$900,00</td><td>560 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$1000,00</td><td>630 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$1200,00</td><td>750 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$1400,00</td><td>870 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$1600,00</td><td>1000 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$1800,00</td><td>1120 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$2000,00</td><td>1250 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$2500,00</td><td>1550 pontos</td></tr>
-              <tr class="hidden-row" style="display:none"><td>R$3000,00</td><td>1850 pontos</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <button class="btn-orange show-more-btn" onclick="toggleRows()">VER MAIS</button>
-      </div>
-
-      <!-- Box 2: Ações Extras -->
-      <div class="earn-box">
-        <div class="earn-header">
-          <div class="earn-number">02.</div>
-          <div class="earn-title">AÇÕES EXTRAS</div>
-        </div>
-      </div>
-
-      <!-- Carrossel fora do box -->
-      <div class="extra-scroll-container">
-          <div class="extra-card"><h3>Avaliação no Google</h3><p><b>Pontos = 20</b></p><p>Deve ser feita no dia da compra e apresentada ao atendente no momento do pedido. Avaliações antigas ou mostradas depois não pontuam</p></div>
-          <div class="extra-card"><h3>Postagem no Instagram</h3><p><b>Pontos = 20</b></p><p> Apenas um story por pedido, com o perfil aberto, no ar por 24 horas. Pontuação é lançada após 24h.</p></div>
-          <div class="extra-card"><h3>Mesa com 4 pessoas</h3><p><b>Pontos = 35</b></p><p>Apenas para consumo no salão.</p></div>
-          <div class="extra-card"><h3>Mesa com 8 pessoas</h3><p><b>Pontos = 80</b></p><p>Apenas para consumo no salão.</p></div>
-          <div class="extra-card"><h3>Mesa com 12 pessoas</h3><p><b>Pontos = 120</b></p><p>Apenas para consumo no salão.</p></div>
-          <div class="extra-card"><h3>Pedir 4 semanas seguidas</h3><p><b>Pontos = 50</b></p><p>Pedidos semanais (mínimo um por semana)</p></div>
-          <div class="extra-card"><h3>Pedir 3 dias seguidos</h3><p><b>Pontos = 60</b></p><p>Três dias seguidos pedindo no Whatsapp ou no salão.</p></div>
-          <div class="extra-card"><h3>Comemorar aniversário</h3><p><b>Pontos = 45</b></p><p>Válido somente para consumo no salão e comprovado por documento de identidade. Pedidos no delivery no dia do aniversário não pontuam.</p></div>
-      </div>
-      <div class="scroll-indicator"><span id="extraSlide">1</span>/8 <span class="arrow">→</span></div>
-    </div>
-  </section>
-
-  <!-- Meus Pontos -->
-  <section class="check-points-section" id="checkPointsSection">
-    <h2>MEUS PONTOS</h2>
-    <p>Consulte seus pontos aqui</p>
-    <p>Digite seu CPF e veja na hora quantos pontos já tem para trocar</p>
-    <button class="btn-orange" onclick="window.open('https://script.google.com/macros/s/AKfycbzWbKFMjdWeFZuLNo-UkK2glpvG4swHnQ57igtAR72YC_g491kKxLa2xulyCSsEQtvaGA/exec', '_blank')">CONSULTAR MEUS PONTOS</button>
-  </section>
-
-  <!-- Perguntas Frequentes -->
-  <section class="faq-section" id="faqSection">
-    <div class="inner">
-      <h2>PERGUNTAS FREQUENTES</h2>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>01. O QUE É O PROGRAMA CODA CLUB?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>É o nosso programa de fidelidade que transforma os seus pedidos em pontos para trocar por produtos, brindes ou experiências exclusivas.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>02. COMO FUNCIONA O PROGRAMA?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Você acumula pontos fazendo seus pedidos no nosso salão ou pelo WhatsApp. Esses pontos podem ser trocados por burgers, pizzas, marmitas e itens exclusivos do CODA.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>03. O PROGRAMA É GRATUITO?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Sim, você participa sem pagar nada por isso!</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>04. COMO EU PARTICIPO?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Basta informar seu nome completo, CPF e data de nascimento na hora do pedido.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>05. O QUE EU GANHO POR PARTICIPAR?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Você pode trocar seus pontos por: Produtos do CODA (burgers, pizzas, parmegianas e muito mais) , Brindes exclusivos (camisetas, chaveiros, bonés, porta-celular) e Experiências especiais como reservas personalizadas no salão</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>06. TODOS OS RESTAURANTES PARTICIPAM?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Sim! Você pontua nos pedidos feitos no: @coda.burger , @coda.pizza e @coda.almoco</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>07. PRECISO ME REGISTRAR PARA PARTICIPAR?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Sim! Na primeira vez em que você participar do CODA Club, será necessário informar CPF, Número de celular, Nome completo. Nas compras seguintes, basta informar o CPF.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>08. PEDIDOS EM RODÍZIOS OU EVENTOS ESPECIAIS TAMBÉM ACUMULAM PONTOS? </span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Rodízio de Mini Burgers e eventos parecidos em qualquer uma das empresas não são válidos para pontuação no CODA Club.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>09. PONTOS EXTRAS ACUMULAM COM OS PONTOS DO VALOR DO PEDIDO? </span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p> Sim. Todas as ações extras acumulam com os pontos do valor da compra. 
-Exemplo: Uma cliente:
- Consumiu R$500,00 em nosso espaço físico (ganha 310
- pontos)
- Estava com uma mesa de 8 pessoas (90 pontos)
- Estava comemorando o seu aniversário no espaço físico (50
- pontos)
- Fez uma avaliação no Google (20 pontos)
- Postou no instagram marcando o CODA (20 pontos)
- Total de pontos acumulados nesse dia: 490 pontos.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>10. POSSO DIVIDIR MEUS PONTOS COM OUTRO CPF? </span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Não. Uma mesma compra ou mesa não pode ser dividida para mais de um CPF. É possível dividir o pagamento em vários cartões ou formas de pagamento, mas os pontos serão lançados em um único CPF. O atendente não tem permissão para separar o pedido ou repassar dados de uma mesa para outra para gerar dois cadastros distintos, a não ser que isso tenha sido solicitado pelos clientes no início do atendimento.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>11. QUANDO COMEÇO A GANHAR PONTOS? </span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>A partir do momento que você faz seu cadastro e realiza seu primeiro pedido dentro das regras de pontuação.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>12. CENTAVOS PONTUAM?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Não. Apenas valores inteiros são considerados no cálculo de pontos.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>13. COMO TROCO MEUS PONTOS POR RECOMPENSAS?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>É só avisar no início do seu pedido que deseja usar seus pontos e informar qual item você quer trocar. Consultar tabela de produtos.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>14. COMO VEJO A QUANTIDADE DE PONTOS DISPONÍVEIS?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Você pode consultar pelo nosso painel do CODA CLUB ou perguntar diretamente no nosso WhatsApp: (35) 99804-1483.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>15. CONSIGO PONTUAR COMPRANDO PELO IFOOD OU AIQFOME?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Não. Compras pelo iFood ou pelo Aiqfome não acumulam pontos.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>16. CONSIGO PONTUAR COMPRANDO PELO WHATSAPP?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Sim! Pedidos feitos pelo WhatsApp ou Goomer do CODA pontuam normalmente.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>17. CONSIGO PONTUAR FAZENDO MEU PEDIDO NO BALCÃO DAS LOJAS?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Sim! Pedidos feitos diretamente no nosso salão também pontuam.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>18. FIZ UMA COMPRA, MAS NÃO RECEBI MEUS PONTOS. O QUE EU FAÇO?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p> O prazo para os pontos caírem é de 24 horas após a compra. Caso esse prazo tenha passado, envie uma mensagem para o Whatsapp do CODA: (35) 99804-1483. Será necessário apresentar a nota fiscal ou comprovante de valores da compra (nota do CODA). Importante: pedidos feitos pelo Ifood ou Aiqfome não acumulam pontos.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>19. CASO NÃO TENHA A NOTA, COMO FAÇO PARA COMPROVAR MEU PEDIDO?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>  Para pedidos consumidos no salão, feitos por telefone ou pedidos para viagem feitos no balcão (take out), a apresentação da nota fiscal é obrigatória. Para pedidos feitos via Whatsapp ou Goomer, você pode enviar um print do pedido. A equipe do CODA terá até 24h para conferir e lançar os pontos.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>20. QUAL O PRAZO PARA OS MEUS PONTOS CAÍREM?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Até 24 horas após a compra.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>21. QUAL O PRAZO PARA OS MEUS PONTOS EXPIRAREM?</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Os pontos têm validade de 60 dias a partir da data da compra que os gerou. Salvo em casos promocionais, onde a validade dos pontos pode variar — nesses casos, o novo prazo será informado no texto da campanha vigente.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Última Seção -->
-  <section class="final-cta-section">
-    <div class="inner">
-      <h2>FAÇA SEU PEDIDO NO CODA E JÁ COMECE A JUNTAR PONTOS!</h2>
-      <button class="btn-orange">FAZER PEDIDO</button>
-      <p>Quanto mais você pede, mais rápido troca por prêmios!</p>
-    </div>
-  </section>
-
-  <script>
-    // Abre/fecha o menu mobile
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
-
-    // Fecha o menu se clicar em qualquer link (com scroll suave)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
-        document.getElementById("navLinks").classList.remove("active");
-      });
-    });
-
-    // Fecha o menu se clicar fora dele
-    document.addEventListener("click", (event) => {
-      const navLinks = document.getElementById("navLinks");
-      const menuToggle = document.querySelector(".menu-toggle");
-
-      if (
-        navLinks.classList.contains("active") &&
-        !navLinks.contains(event.target) &&
-        event.target !== menuToggle
-      ) {
-        navLinks.classList.remove("active");
-      }
-    });
-
-    // Scroll indicator
-    const scrollContainer = document.querySelector('.scroll-container');
-    if (scrollContainer) {
-      const currentSlide = document.getElementById('currentSlide');
-      const totalSlides = scrollContainer.children.length;
-      scrollContainer.addEventListener('scroll', () => {
-        const cardWidth = scrollContainer.children[0].offsetWidth + 24;
-        const index = Math.round(scrollContainer.scrollLeft / cardWidth) + 1;
-        currentSlide.textContent = Math.min(index, totalSlides);
-      });
-    }
-
-    function toggleRows() {
-      const hiddenRows = document.querySelectorAll(".hidden-row");
-      const btn = document.querySelector(".show-more-btn");
-      const isHidden = hiddenRows[0].style.display === "none";
-
-      hiddenRows.forEach(row => {
-        row.style.display = isHidden ? "table-row" : "none";
+      document.getElementById("cpfInput").addEventListener("input", function(e) {
+        e.target.value = formatCPF(e.target.value);
       });
 
-      btn.textContent = isHidden ? "Ver menos" : "Ver mais";
-    }
+      function consultarPontos() {
+        const input = document.getElementById("cpfInput").value.trim();
+        const cpfClean = input.replace(/\D/g, "");
+        const pointsDisplay = document.getElementById("pointsDisplay");
+        const msg = document.getElementById("msg");
 
-    // Scroll indicator para ações extras
-    const extraScroll = document.querySelector('.extra-scroll-container');
-    if (extraScroll) {
-      const extraSlide = document.getElementById('extraSlide');
-      const totalExtra = extraScroll.children.length;
-      extraScroll.addEventListener('scroll', () => {
-        const cardWidth = extraScroll.children[0].offsetWidth + 24;
-        const index = Math.round(extraScroll.scrollLeft / cardWidth) + 1;
-        extraSlide.textContent = Math.min(index, totalExtra);
-      });
-    }
+        pointsDisplay.innerHTML = '';
+        msg.textContent = '';
 
-    // FAQ toggle
-    document.querySelectorAll(".faq-question").forEach(q => {
-      q.addEventListener("click", () => {
-        const item = q.parentElement;
-        item.classList.toggle("active");
-      });
-    });
+        if (!input) {
+          msg.textContent = "Por favor, insira um CPF.";
+          return;
+        }
 
-  </script>
-</body>
+        if (cpfClean.length !== 11) {
+          msg.textContent = "Informação fornecida incorreta.";
+          return;
+        }
+
+        google.script.run
+          .withSuccessHandler(function(response) {
+            pointsDisplay.innerHTML = response;
+          })
+          .searchID(input);
+      }
+    </script>
+  </body>
 </html>
